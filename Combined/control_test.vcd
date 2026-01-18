@@ -1,0 +1,83 @@
+$date
+	Fri Jan 02 16:45:44 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module control_tb $end
+$var wire 1 ! rw $end
+$var wire 1 " mw $end
+$var wire 1 # mtr $end
+$var wire 1 $ mr $end
+$var wire 1 % br $end
+$var wire 1 & ALUs $end
+$var wire 2 ' ALUo [1:0] $end
+$var reg 32 ( instr [31:0] $end
+$scope module dut $end
+$var wire 32 ) instr [31:0] $end
+$var wire 7 * opcode [6:0] $end
+$var reg 2 + ALUo [1:0] $end
+$var reg 1 & ALUs $end
+$var reg 1 % br $end
+$var reg 1 $ mr $end
+$var reg 1 # mtr $end
+$var reg 1 " mw $end
+$var reg 1 ! rw $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b0 +
+b0 *
+b0 )
+b0 (
+b0 '
+0&
+0%
+0$
+0#
+0"
+0!
+$end
+#20
+x#
+1"
+1&
+b100011 *
+b10101010101010101000100110100011 (
+b10101010101010101000100110100011 )
+#40
+0"
+1%
+0&
+b1 '
+b1 +
+b1100011 *
+b11111111111111111111111111100011 (
+b11111111111111111111111111100011 )
+#60
+0#
+1!
+0%
+b10 '
+b10 +
+b110011 *
+b11111111111111111111111110110011 (
+b11111111111111111111111110110011 )
+#80
+1#
+1$
+1&
+b0 '
+b0 +
+b11 *
+b11111111111111111111111110000011 (
+b11111111111111111111111110000011 )
+#100
