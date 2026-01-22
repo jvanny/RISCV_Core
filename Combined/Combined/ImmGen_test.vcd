@@ -1,0 +1,65 @@
+$date
+	Thu Jan 01 23:25:58 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module ImmGen_tb $end
+$var wire 32 ! immout [31:0] $end
+$var reg 32 " instr [31:0] $end
+$scope module dut $end
+$var wire 32 # instr [31:0] $end
+$var wire 7 $ opcode [6:0] $end
+$var parameter 7 % ALUUTYPE $end
+$var parameter 7 & BTYPE $end
+$var parameter 7 ' ILTYPE $end
+$var parameter 7 ( IRTYPE $end
+$var parameter 7 ) JRTYPE $end
+$var parameter 7 * JTYPE $end
+$var parameter 7 + STYPE $end
+$var parameter 7 , UPPERUTYPE $end
+$var reg 32 - immout [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b110111 ,
+b100011 +
+b1101111 *
+b1100111 )
+b10011 (
+b11 '
+b1100011 &
+b10111 %
+$end
+#0
+$dumpvars
+b0 -
+b0 $
+b0 #
+b0 "
+b0 !
+$end
+#20
+b11111111111111111111101010101010 !
+b11111111111111111111101010101010 -
+b10011 $
+b10101010101010101000100110010011 "
+b10101010101010101000100110010011 #
+#40
+b11111111111111111111111111111110 !
+b11111111111111111111111111111110 -
+b1101111 $
+b11111111111111111111111111101111 "
+b11111111111111111111111111101111 #
+#60
+b0 !
+b0 -
+b110011 $
+b11111111111111111111111110110011 "
+b11111111111111111111111110110011 #
+#80
