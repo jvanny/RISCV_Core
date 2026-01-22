@@ -51,7 +51,7 @@ instruction_memory iMem(
     .instruction(instr_if)
 );
 
-if_id_reg IFIDReg(
+if_id_reg IFIDREG(
     .clk(clk),
     .stall(if_id_stall),
     .flush(if_id_flush),
@@ -322,6 +322,7 @@ branch_unit BRANCH_JUMP_UNIT(
     .br(br_mem),
     .j(j_mem),
     .jr(jr_mem),
+    .zero(zero_mem),
     .funct3(funct3_mem),
     .neg(neg_mem),
     .overflow(overflow_mem),

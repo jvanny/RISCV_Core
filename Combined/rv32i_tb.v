@@ -10,15 +10,23 @@ rv32i_top RV32I(
 );
 
 initial begin
+    // Force all registers to 0 at time 0
+    for (integer j = 0; j < 32; j = j + 1) begin
+        RV32I.REG.reg_mem[j] = 32'b0;
+    end
+end
+
+initial begin
     clk = 0;
         forever #5 clk = ~clk; // 10ns period (100 MHz)
     end
     
 initial begin
         reset = 1;
-        #20 reset = 0;
+        #10 
+        reset = 0;
 
-        #5000; // Wait for program to finish
+        #700; // Wait for program to finish
 
         $display("\n--- FINAL REGISTER DUMP ---");
         dump_registers();
@@ -37,12 +45,17 @@ task dump_registers;
     endtask
 
 initial begin
-    $monitor("Time: %t | PC: %h | Instr: %h | ALU_Out: %h | WB_Reg: %d | WB_Data: %h | br: %b | PCsrc: ", 
-             $time, RV32I.PC_OUT_if, RV32I.instr_if, RV32I.ALU_result_ex, RV32I.regdest_wb, RV32I.result_wb, RV32I.br_mem, RV32I.PCsrc_mem);
+    //$monitor("Time: %t | PC: %h | x5: %d | x8: %d | x9: %d | x10: %d | x11: %d | br_ex: %b | zero_ex: %d | Input A: %d | Input B: %d | br_mem: %b | zero_mem: %d | PCsrc_mem: %b | jump: %b |", 
+    //         $time, RV32I.PC_OUT_if, RV32I.REG.reg_mem[5], RV32I.REG.reg_mem[8], RV32I.REG.reg_mem[9], RV32I.REG.reg_mem[10], RV32I.REG.reg_mem[11], RV32I.EXMEMREG.br_in, RV32I.EXMEMREG.zero_in, RV32I.ALUEX.B, RV32I.ALUEX.A, RV32I.EXMEMREG.br_out, RV32I.EXMEMREG.zero_out, RV32I.BRANCH_JUMP_UNIT.PCsrc, RV32I.EXMEMREG.j_out);
+
+    $monitor("Time: %t | PC: %h | x5: %d | br_ex: %b | zero_ex: %d | Input A: %d | Input B: %d | br_mem: %b | zero_mem: %d | PCsrc_mem: %b | jump: %b |",
+            $time, RV32I.PC_OUT_if, RV32I.REG.reg_mem[5], RV32I.EXMEMREG.br_in, RV32I.EXMEMREG.zero_in, RV32I.ALUEX.B, RV32I.ALUEX.A, RV32I.EXMEMREG.br_out, RV32I.EXMEMREG.zero_out, RV32I.BRANCH_JUMP_UNIT.PCsrc, RV32I.EXMEMREG.j_out);
 end
     initial begin
     $dumpfile("rv32i_sim.vcd"); // Creates the waveform file
     $dumpvars(0, rv32i_tb);    // Dumps all signals in the TB and below
 end
+
+
 
 endmodule

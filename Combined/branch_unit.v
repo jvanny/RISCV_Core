@@ -32,12 +32,12 @@ always @(*) begin
     end else if(br) begin 
         
         case (funct3)
-        3'b000: PCsrc = br & zero; //BEQ
-        3'b001: PCsrc = br & !zero; //BNE
-        3'b100: PCsrc = br & slt; //BLT
-        3'b101: PCsrc = br & !slt; //BGE
-        3'b110: PCsrc = br & ult; //BLTU
-        3'b111: PCsrc = br & !ult; //BGEU
+        3'b000: PCsrc = zero; //BEQ
+        3'b001: PCsrc = !zero; //BNE
+        3'b100: PCsrc = slt; //BLT
+        3'b101: PCsrc = !slt; //BGE
+        3'b110: PCsrc = ult; //BLTU
+        3'b111: PCsrc = !ult; //BGEU
         default: PCsrc = 1'b0;
 
 endcase
